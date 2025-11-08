@@ -13,13 +13,9 @@ def are_multisets_equal(x, y):
 
 
 def max_after_zero(x):
-    zero_indices = np.where(x == 0)[0]
-    following_elements = []
-    for idx in zero_indices:
-        if idx + 1 < len(x):
-            following_elements.append(x[idx + 1])
-    max_element = max(following_elements) if following_elements else None
-    return max_element
+    mask = x[:-1] == 0
+    candidates = x[1:][mask]
+    return np.max(candidates) if candidates.size > 0 else None
 
 
 def convert_image(img, coefs):
