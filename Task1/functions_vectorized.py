@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def prod_non_zero_diag(x):
     diag = np.diagonal(x)
     nonZero = diag[diag != 0]
